@@ -2,7 +2,7 @@
 import _ from 'lodash'
 import helper from 'rw-dispatcher-helper'
 import options from '../../../options'
-import { renderHook } from '../../mixins'
+// import { renderHook } from '../../mixins'
 
 const isRadio = component => {
   return _.get(component, 'componentOptions.tag', '').toLowerCase() === 'radio'
@@ -24,7 +24,7 @@ const renderRules = [
     // 读状态且不存在 readStateRender 插槽
     match: (context, state) => (helper.isReadStateAndNotRener(context, state)),
     action: (h, context) => {
-      const { readStateData, uuid } = helper.wrapContext(context, options.uuidAttribute, options.readStateClsPrefix, tag, '-')
+      const { readStateData } = helper.wrapContext(context, options.uuidAttribute, options.readStateClsPrefix, tag, '-')
       const value = _.get(context, 'data.attrs.value')
       const childNodes = []
       const children = _.get(context, 'children', [])
@@ -42,7 +42,7 @@ const renderRules = [
       const cloneData = _.cloneDeep(readStateData)
       _.set(cloneData, 'attrs.type', '')
       const vnode = h('div', cloneData, childNodes)
-      renderHook(context.parent, uuid, tag, _.get(context, 'data.attrs.size'))
+      // renderHook(context.parent, uuid, tag, _.get(context, 'data.attrs.size'))
       return vnode
     }
   }

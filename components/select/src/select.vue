@@ -2,7 +2,7 @@
 import _ from 'lodash'
 import helper from 'rw-dispatcher-helper'
 import options from '../../../options'
-import { renderHook, joinWithSeperator } from '../../mixins'
+import { joinWithSeperator } from '../../mixins'
 
 const isOption = component => {
   return component.componentOptions.tag === 'Option'
@@ -45,11 +45,11 @@ const renderRules = [
     match: (context, state) => (helper.isReadStateAndNotRener(context, state)),
     action: (h, context) => {
       const localConfig = _.get(context, `injections.${options.providerName}.${options.providerConfig}`, {})
-      const { readStateData, uuid } = helper.wrapContext(context, options.uuidAttribute, options.readStateClsPrefix, tag, '-')
+      const { readStateData } = helper.wrapContext(context, options.uuidAttribute, options.readStateClsPrefix, tag, '-')
       const { data, children } = context
       const separator = helper.getDispatcherProp(context, options.namespace, 'separator') || localConfig.separator || options.separator
       const vnode = h('div', readStateData, joinWithSeperator(h, getLabels(data, children), separator))
-      renderHook(context.parent, uuid, tag, _.get(context, 'data.attrs.size'))
+      // renderHook(context.parent, uuid, tag, _.get(context, 'data.attrs.size'))
       return vnode
     }
   }

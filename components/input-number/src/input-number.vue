@@ -2,7 +2,7 @@
 import _ from 'lodash'
 import helper from 'rw-dispatcher-helper'
 import options from '../../../options'
-import { renderHook } from '../../mixins'
+// import { renderHook } from '../../mixins'
 
 const tag = 'input-number'
 
@@ -12,7 +12,7 @@ const renderRules = [
     // 读状态且不存在 readStateRender 插槽
     match: (context, state) => (helper.isReadStateAndNotRener(context, state)),
     action: (h, context) => {
-      const { readStateData, uuid } = helper.wrapContext(context, options.uuidAttribute, options.readStateClsPrefix, tag, '-')
+      const { readStateData } = helper.wrapContext(context, options.uuidAttribute, options.readStateClsPrefix, tag, '-')
       const precision = _.get(context, 'data.attrs.precision')
       const formatter = _.get(context, 'data.attrs.formatter')
       let value = _.get(context, 'data.attrs.value', 0)
@@ -23,7 +23,7 @@ const renderRules = [
         value = formatter(value)
       }
       const vnode = h('div', readStateData, value)
-      renderHook(context.parent, uuid, tag, _.get(context, 'data.attrs.size'))
+      // renderHook(context.parent, uuid, tag, _.get(context, 'data.attrs.size'))
       return vnode
     }
   }

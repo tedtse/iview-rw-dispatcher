@@ -2,7 +2,7 @@
 import _ from 'lodash'
 import helper from 'rw-dispatcher-helper'
 import options from '../../../options'
-import { renderHook } from '../../mixins'
+// import { renderHook } from '../../mixins'
 
 const tag = 'switch'
 
@@ -13,24 +13,20 @@ const renderRules = [
     match: (context, state) => (helper.isReadStateAndNotRener(context, state)),
     action: (h, context) => {
       const localConfig = _.get(context, `injections.${options.providerName}.${options.providerConfig}`, {})
-      const { readStateData, uuid } = helper.wrapContext(context, options.uuidAttribute, options.readStateClsPrefix, tag, '-')
+      const { readStateData } = helper.wrapContext(context, options.uuidAttribute, options.readStateClsPrefix, tag, '-')
       const trueValue = typeof context.scopedSlots.open === 'function'
         ? context.scopedSlots.open()
-        : (_.get(context, 'props.trueValue') !== undefined
-          ? _.get(context, 'props.trueValue')
-          : (localConfig.trueValue !== undefined
-            ? localConfig.trueValue
-            : options.trueValue))
+        : _.get(context, 'props.trueValue') ||
+          localConfig.trueValue ||
+          options.trueValue
       const falseValue = typeof context.scopedSlots.close === 'function'
         ? context.scopedSlots.close()
-        : (_.get(context, 'props.falseValue') !== undefined
-          ? _.get(context, 'props.falseValue')
-          : (localConfig.falseValue !== undefined
-            ? localConfig.falseValue
-            : options.falseValue))
+        : _.get(context, 'props.falseValue') ||
+            localConfig.falseValue ||
+            options.falseValue
       const vnode = h('div', readStateData,
         _.get(context, 'data.attrs.value') ? trueValue : falseValue)
-      renderHook(context.parent, uuid, tag, _.get(context, 'data.attrs.size'))
+      // renderHook(context.parent, uuid, tag, _.get(context, 'data.attrs.size'))
       return vnode
     }
   }

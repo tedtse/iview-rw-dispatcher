@@ -2,7 +2,7 @@
 import _ from 'lodash'
 import helper from 'rw-dispatcher-helper'
 import options from '../../../options'
-import { renderHook, joinWithSeperator } from '../../mixins'
+import { joinWithSeperator } from '../../mixins'
 import { DEFAULT_FORMATS, TYPE_VALUE_RESOLVER_MAP } from './util'
 
 const tag = 'date-picker'
@@ -14,7 +14,7 @@ const renderRules = [
     match: (context, state) => (helper.isReadStateAndNotRener(context, state)),
     action: (h, context) => {
       const localConfig = _.get(context, `injections.${options.providerName}.${options.providerConfig}`, {})
-      const { readStateData, uuid } = helper.wrapContext(context, options.uuidAttribute, options.readStateClsPrefix, tag, '-')
+      const { readStateData } = helper.wrapContext(context, options.uuidAttribute, options.readStateClsPrefix, tag, '-')
       const { value } = context.props
       const type = context.props.type || 'date'
       const multiple = context.props.multiple !== undefined
@@ -50,7 +50,7 @@ const renderRules = [
         }
         vnode = h('div', readStateData, joinWithSeperator(h, childNodes, rangeSeparator))
       }
-      renderHook(context.parent, uuid, tag, _.get(context, 'data.attrs.size'))
+      // renderHook(context.parent, uuid, tag, _.get(context, 'data.attrs.size'))
       return vnode
     }
   }

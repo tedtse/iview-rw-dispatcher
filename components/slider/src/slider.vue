@@ -2,7 +2,7 @@
 import _ from 'lodash'
 import helper from 'rw-dispatcher-helper'
 import options from '../../../options'
-import { renderHook, joinWithSeperator } from '../../mixins'
+import { joinWithSeperator } from '../../mixins'
 
 const tag = 'slider'
 
@@ -13,7 +13,7 @@ const renderRules = [
     match: (context, state) => (helper.isReadStateAndNotRener(context, state)),
     action: (h, context) => {
       const localConfig = _.get(context, `injections.${options.providerName}.${options.providerConfig}`, {})
-      const { readStateData, uuid } = helper.wrapContext(context, options.uuidAttribute, options.readStateClsPrefix, tag, '-')
+      const { readStateData } = helper.wrapContext(context, options.uuidAttribute, options.readStateClsPrefix, tag, '-')
       const rangeSeparator = helper.getDispatcherProp(context, options.namespace, 'range-separator') || localConfig.rangeSeparator || options.rangeSeparator
       const tipFormat = _.get(context, 'props.tipFormat', null)
       const value = _.get(context, 'data.attrs.value', '')
@@ -22,7 +22,7 @@ const renderRules = [
         typeof tipFormat === 'function' ? tipFormat(item) : item
       ))
       const vnode = h('div', readStateData, joinWithSeperator(h, labels, rangeSeparator))
-      renderHook(context.parent, uuid, tag, _.get(context, 'data.attrs.size'))
+      // renderHook(context.parent, uuid, tag, _.get(context, 'data.attrs.size'))
       return vnode
     }
   }

@@ -3,7 +3,7 @@ import _ from 'lodash'
 import helper from 'rw-dispatcher-helper'
 import options from '../../../options'
 import hiddenComponent from '../../hidden-component'
-import { renderHook } from '../../mixins'
+// import { renderHook } from '../../mixins'
 
 const tag = 'checkbox'
 
@@ -13,7 +13,7 @@ const renderRules = [
     // 读状态且不存在 readStateRender 插槽
     match: (context, state) => (helper.isReadStateAndNotRener(context, state)),
     action: (h, context) => {
-      const { readStateData, uuid } = helper.wrapContext(context, options.uuidAttribute, options.readStateClsPrefix, tag, '-')
+      const { readStateData } = helper.wrapContext(context, options.uuidAttribute, options.readStateClsPrefix, tag, '-')
       const { label, value } = _.get(context, 'data.attrs', {})
       let vnode
       if (value) {
@@ -21,7 +21,7 @@ const renderRules = [
       } else {
         vnode = hiddenComponent(h, context)
       }
-      renderHook(context.parent, uuid, tag, _.get(context, 'data.attrs.size'))
+      // renderHook(context.parent, uuid, tag, _.get(context, 'data.attrs.size'))
       return vnode
     }
   }
