@@ -1,0 +1,75 @@
+@import "./common/var.less";
+
+.@{css-prefix}seperator {
+  display: inline-block;
+  height: 100%;
+  line-height: 100%;
+  padding: 0 10px;
+  margin: 0;
+  text-align: center;
+  color: @text-color;
+}
+
+@input-prefix-cls: ~"@{css-prefix}input";
+@auto-complete-prefix-cls: ~"@{css-prefix}auto-complete";
+@input-number-prefix-cls: ~"@{css-prefix}input-number";
+@select-prefix-cls: ~"@{css-prefix}select";
+@radio-prefix-cls: ~"@{css-prefix}radio";
+@radio-group-prefix-cls: ~"@{css-prefix}radio-group";
+@checkbox-prefix-cls: ~"@{css-prefix}checkbox";
+@checkbox-group-prefix-cls: ~"@{css-prefix}checkbox-group";
+@date-picker-prefix-cls: ~"@{css-prefix}date-picker";
+@time-picker-prefix-cls: ~"@{css-prefix}time-picker";
+@switch-prefix-cls: ~"@{css-prefix}switch";
+@rate-prefix-cls: ~"@{css-prefix}rate";
+@slider-prefix-cls: ~"@{css-prefix}slider";
+
+.@{input-prefix-cls},
+.@{auto-complete-prefix-cls},
+.@{input-number-prefix-cls},
+.@{select-prefix-cls},
+.@{date-picker-prefix-cls},
+.@{time-picker-prefix-cls} {
+  display: inline-block;
+  height: @input-height-base;
+  line-height: @input-height-base;
+  &-large {
+    height: @input-height-large;
+    line-height: @input-height-large;
+    font-size: @font-size-base;
+  }
+  &-small {
+    height: @input-height-small;
+    line-height: @input-height-small;
+    font-size: @font-size-small;
+  }
+}
+
+.@{radio-prefix-cls}, .@{radio-group-prefix-cls}, .@{checkbox-prefix-cls}, .@{checkbox-group-prefix-cls} {
+  display: inline-block;
+  &-large {
+    height: @btn-circle-size-large;
+    line-height: @btn-circle-size-large;
+    font-size: @font-size-base;
+  }
+  &-small {
+    height: @btn-circle-size-small;
+    line-height: @btn-circle-size-small;
+    font-size: @font-size-small;
+  }
+}
+
+.@{switch-prefix-cls} {
+  display: inline-block;
+  &-large {
+    font-size: @font-size-base;
+  }
+  &-small {
+    font-size: @font-size-small;
+  }
+}
+
+.@{slider-prefix-cls} {
+  margin: @slider-margin;
+  line-height: 1;
+}
