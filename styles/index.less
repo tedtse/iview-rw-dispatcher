@@ -45,8 +45,21 @@
   }
 }
 
-.@{radio-prefix-cls}, .@{radio-group-prefix-cls}, .@{checkbox-prefix-cls}, .@{checkbox-group-prefix-cls} {
+.@{radio-prefix-cls}, .@{checkbox-prefix-cls} {
   display: inline-block;
+  &-large {
+    height: @btn-circle-size-large;
+    line-height: @btn-circle-size-large;
+    font-size: @font-size-base;
+  }
+  &-small {
+    height: @btn-circle-size-small;
+    line-height: @btn-circle-size-small;
+    font-size: @font-size-small;
+  }
+}
+.@{radio-group-prefix-cls}, .@{checkbox-group-prefix-cls} {
+  display: block;
   &-large {
     height: @btn-circle-size-large;
     line-height: @btn-circle-size-large;
@@ -67,9 +80,4 @@
   &-small {
     font-size: @font-size-small;
   }
-}
-
-.@{slider-prefix-cls} {
-  margin: @slider-margin;
-  line-height: 1;
 }
