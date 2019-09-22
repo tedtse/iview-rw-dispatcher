@@ -1,10 +1,16 @@
 {
   "name": "iview-rw-dispatcher",
-  "version": "1.0.0",
-  "main": "index.js",
+  "version": "0.0.0-alpha",
   "license": "MIT",
+  "main": "index.js",
+  "module": "index.js",
+  "typings": "types/index.d.ts",
   "dependencies": {
     "change-case": "^3.1.0",
     "lodash": "^4.17.15"
+  },
+  "peerDependencies": {
+    "iview": "^3.5.1",
+    "vue": "^2.6.10"
   }
 }
