@@ -16,14 +16,12 @@ const renderRules = [
       const { readStateData } = helper.wrapContext(context, options.uuidAttribute, options.readStateClsPrefix, tag, '-')
       const trueValue = typeof context.scopedSlots.open === 'function'
         ? context.scopedSlots.open()
-        : _.get(context, 'props.trueValue') ||
-          localConfig.trueValue ||
+        : localConfig.trueValue ||
           options.trueValue
       const falseValue = typeof context.scopedSlots.close === 'function'
         ? context.scopedSlots.close()
-        : _.get(context, 'props.falseValue') ||
-            localConfig.falseValue ||
-            options.falseValue
+        : localConfig.falseValue ||
+          options.falseValue
       const vnode = h('div', readStateData,
         _.get(context, 'data.attrs.value') ? trueValue : falseValue)
       // renderHook(context.parent, uuid, tag, _.get(context, 'data.attrs.size'))
