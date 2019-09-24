@@ -1,6 +1,7 @@
 export declare type Configuration = {
   namespace?: string
-  activeText?: string
+  trueValue?: string
+  falseValue?: string
   separator?: string
   rangeSeparator?: string
   readStateRender?: object
