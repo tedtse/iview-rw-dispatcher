@@ -12,6 +12,7 @@ import SwitchDispatcher from './components/switch'
 import RateDispatcher from './components/rate'
 import SliderDispatcher from './components/slider'
 
+import { RWDispatcher } from './rw-dispatcher'
 import OPTIONS, { setOptions } from './options'
 import packageJSON from './package.json'
 
@@ -40,6 +41,23 @@ const install = function (Vue, opts = {}) {
     component.reset(OPTIONS)
     Vue.component(name, component)
   }
+}
+
+export {
+  InputDispatcher,
+  AutoCompleteDispatcher,
+  InputNumberDispatcher,
+  SelectDispatcher,
+  RadioGroupDispatcher,
+  RadioDispatcher,
+  CheckboxGroupDispatcher,
+  CheckboxDispatcher,
+  DatePickerDispatcher,
+  TimePickerDispatcher,
+  SwitchDispatcher,
+  RateDispatcher,
+  SliderDispatcher,
+  RWDispatcher
 }
 
 export default {
