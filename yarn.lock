@@ -134,10 +134,10 @@ path-case@^2.1.0:
   dependencies:
     no-case "^2.2.0"
 
-rw-dispatcher-helper@^0.0.0-alpha:
-  version "0.0.0-alpha"
-  resolved "http://npm.xiepeng.cc/rw-dispatcher-helper/-/rw-dispatcher-helper-0.0.0-alpha.tgz#82afcd6c1c4b56f93ab5a1e99587c4033e09d0f5"
-  integrity sha512-a+ewl3gTNdOKZlpFtVqnqZcz/T73DuKEJkKKNLLiTOiKJaGWWDCBJ8d3PmGDWbfvOKRzqMPWjSnv48EU7+EBLw==
+rw-dispatcher-helper@^0.1.0-beta:
+  version "0.1.0-beta"
+  resolved "https://registry.npmjs.org/rw-dispatcher-helper/-/rw-dispatcher-helper-0.1.0-beta.tgz#52f7fbdcd5f513a93d60c5a79650dcb7e1c0004c"
+  integrity sha512-M2Siig6iLmi7ZeK98b3fPPNK3srlP6OO8n23J6fQptmbP7s1gUHD26b808VM376aKvJ5FCgwMHJme5cz9C3abg==
   dependencies:
     "@types/lodash" "^4.14.137"
     "@types/uuid" "^3.4.5"
