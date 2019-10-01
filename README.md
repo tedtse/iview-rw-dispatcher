@@ -32,9 +32,13 @@ new Vue({
 
 ### 使用
 使用分发器比较使用表单只多了三步：
+
 - 添加 `provide` 属性，其中 `rwDispatcherProvider` 的值指向自身
+
 - data属性中添加 `rwDispatcherState` 做状态管理（`read` or `write`）
+
 - 原来表单元素的标签加一个 `Dispatcher` 后缀，其配置保持不变
+
 ```html
 <template>
   <Form ref="form" :model="form" :label-width="80" size="small">
@@ -97,6 +101,7 @@ export default {
 全局配置在插件初始化时配置。
 
 ### 使用
+
 ```javascript
 import Vue from 'vue'
 import iViewRwDispatcher from 'iview-rw-dispatcher'
@@ -129,13 +134,6 @@ Vue.use(iViewRwDispatcher, {
       <td>namespace</td>
       <td>
         命名空间，read 状态渲染函数、状态管理、局部配置等参数的前缀。
-        <el-tooltip placement="top">
-          <div slot="content">
-            状态管理参数是 rwDispatcherState（camelCase）；<br />
-            InputDispatcher read 状态渲染生成的 class 是 rw-dispatcher-input（kebab-case）。
-          </div>
-          <i class="el-icon-question" />
-        </el-tooltip>
         <br />
         使用过程中如果有参数冲突时可以改这个值。
       </td>
@@ -204,6 +202,7 @@ Vue.use(iViewRwDispatcher, {
 如果组件的实际配置与全局配置不同，需要用局部配置覆盖全局配置，配置名默认`rwDispatcherConfig`。局部配置与全局配置的唯一区别，是局部配置**没有**命名空间(namespace)选项，而全局配置有。
 
 ### 使用
+
 ```html
 <template>
   <Form ref="form" :model="form" :label-width="80" size="small">
@@ -266,7 +265,8 @@ read 状态的渲染函数有多套配置，分别是：
 
 - **全局配置**
 
-  插件初始化时配置。比如命名空间 `namespace`（默认 `rwDispatcher`），用法是：
+插件初始化时配置。比如命名空间 `namespace`（默认 `rwDispatcher`），用法是：
+
 ```js
 import Vue from 'vue'
 import iViewRwDispatcher from 'iview-rw-dispatcher'
@@ -278,7 +278,8 @@ Vue.use(iViewRwDispatcher, {
 
 - **局部配置**
 
-  在 provider 组件中的 `${namespace}Config` 参数（默认 `rwDispatcherConfig`），用法是：
+在 provider 组件中的 `${namespace}Config` 参数（默认 `rwDispatcherConfig`），用法是：
+
 ```js
 export default {
   data () {
@@ -293,7 +294,8 @@ export default {
 
 - **组件配置**
 
-  单个组件的 props 和 slot。比如：
+单个组件的 props 和 slot。比如：
+
 ```html
 <DatePickerDispatcher type="daterange" rw-dispatcher-range-separator="-">
   <template #rwDispatcherRender="{ data, children }">
@@ -307,6 +309,7 @@ export default {
 `组件配置` > `局部配置` > `全局配置`，优先级高的配置会覆盖优先级低的配置。
 
 组件配置中 `slot` > `props`。如下：
+
 ```html
 <template>
   <InputDispatcher :rw-dispatcher-render="inputRender">
