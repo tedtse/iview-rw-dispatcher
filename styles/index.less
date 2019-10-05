@@ -35,6 +35,7 @@
   display: inline-block;
   height: @input-height-base;
   line-height: @input-height-base;
+  font-size: @font-size-small;
   &-large {
     height: @input-height-large;
     line-height: @input-height-large;
@@ -49,6 +50,7 @@
 
 .@{radio-prefix-cls}, .@{checkbox-prefix-cls} {
   display: inline-block;
+  font-size: @font-size-small;
   &-large {
     height: @btn-circle-size-large;
     line-height: @btn-circle-size-large;
@@ -62,6 +64,7 @@
 }
 .@{radio-group-prefix-cls}, .@{checkbox-group-prefix-cls} {
   display: block;
+  font-size: @font-size-small;
   &-large {
     height: @btn-circle-size-large;
     line-height: @btn-circle-size-large;
@@ -76,6 +79,18 @@
 
 .@{switch-prefix-cls} {
   display: inline-block;
+  font-size: @font-size-small;
+  &-large {
+    font-size: @font-size-base;
+  }
+  &-small {
+    font-size: @font-size-small;
+  }
+}
+
+.@{slider-prefix-cls} {
+  display: block;
+  font-size: @font-size-small;
   &-large {
     font-size: @font-size-base;
   }
