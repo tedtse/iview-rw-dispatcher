@@ -1,6 +1,6 @@
 {
   "name": "iview-rw-dispatcher",
-  "version": "0.1.0-beta",
+  "version": "0.1.0-beta.1",
   "license": "MIT",
   "main": "index.js",
   "module": "index.js",
