@@ -329,7 +329,7 @@ export default {
 }
 </script>
 ```
-read 转态会应用 slot 的渲染函数。
+read 状态会应用 slot 的渲染函数。
 
 ## 组件配置
 
