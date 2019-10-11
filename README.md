@@ -1,6 +1,8 @@
 # iview-rw-dispatcher
 基于 iView form 组件的分发器，这样表单的编辑和详情就可以一套代码完成，节省了开发成本。
 
+文档地址: [http://xiepeng.cc/rw-dispatcher/#/](http://xiepeng.cc/rw-dispatcher/#/)
+
 ### 安装
 npm 安装
 ```shell
